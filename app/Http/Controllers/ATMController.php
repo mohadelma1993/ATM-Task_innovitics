@@ -32,10 +32,11 @@ class ATMController extends Controller
             'type' => 'deposit',
             'amount' => $request->amount,
         ]);
-
+        $user = Auth::user();
+        
         return response()->json([
             'message' => 'Deposit successful',
-            'new_balance' => $user->balance
+            'new_balance' => $user->balance+$request->amount
         ], 200);
     }
 
@@ -55,10 +56,10 @@ class ATMController extends Controller
             'type' => 'withdrawal',
             'amount' => $request->amount,
         ]);
-
+        $user = Auth::user();
         return response()->json([
             'message' => 'Withdrawal successful',
-            'new_balance' => $user->balance
+            'new_balance' => $user->balance-$request->amount
         ], 200);
     }
 

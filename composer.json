@@ -40,8 +40,11 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan key:generate",
-            "@php artisan migrate --force",
+            "php artisan key:generate",
+        "php artisan passport:keys --force",
+        "php artisan passport:client --personal",
+        "php artisan migrate --force",
+        "php artisan voyager:install --with-dummy",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
@@ -52,7 +55,10 @@
         ],
         "post-install-cmd": [
         "php artisan key:generate",
-        "php artisan migrate --force"
+        "php artisan passport:keys --force",
+        "php artisan passport:client --personal",
+        "php artisan migrate --force",
+        "php artisan voyager:install --with-dummy"
         ]
     
     },

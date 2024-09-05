@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->bigInteger('debit_card_number')->length(16)->unique()->default(0);
-            $table->string('pin');
+            $table->string('pin')->default(0);
             $table->decimal('balance',15,2)->default(0);
             $table->string('password');
             $table->rememberToken();
